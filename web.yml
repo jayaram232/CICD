@@ -9,12 +9,12 @@
     - name: Install Httpd
       yum:
        name: httpd
-       state: latest
+       state: absent
 
     - name: Enable service to start on boot up
       service:
        name: httpd
-       state: started
+       state: stopped
 
     - name: Create firewall rule for apache service
       firewalld:
@@ -22,6 +22,6 @@
        zone: public
        permanent: yes
        immediate: yes
-       state: enabled
+       state: absent 
 
 ...
