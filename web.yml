@@ -2,6 +2,7 @@
 ---
 - name: Playbook to install httpd
   hosts: prod
+  gather_facts: no
   tasks:
 
 
@@ -15,7 +16,7 @@
        name: httpd
        state: started
 
-     - name: Create firewall rule for apache service
+    - name: Create firewall rule for apache service
       firewalld:
        service: http
        zone: public
